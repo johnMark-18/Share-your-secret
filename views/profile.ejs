@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Secrets</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+      integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+
+  <body>
+    <div class="container centered">
+      <div class="jumbotron">
+        <h1 class="display-4">Welcome, <%= user.name %></h1>
+        <p class="lead">Email: <%= user.email %></p>
+
+        <hr />
+
+        <!-- Display User's Secrets -->
+        <h2>Your Secrets</h2>
+        <% if (userSecrets.length > 0) { %>
+        <div class="secrets-container">
+          <% userSecrets.forEach(secret => { %>
+          <div class="card">
+            <div class="card-body">
+              <p class="card-text"><%= secret.content %></p>
+            </div>
+          </div>
+          <% }); %>
+        </div>
+        <% } else { %>
+        <p>You haven't shared any secrets yet!</p>
+        <% } %>
+
+        <!-- Profile Actions -->
+        <div class="position-absolute" style="top: 10px; right: 20px">
+          <a class="btn btn-light btn-sm" href="/edit-profile">Edit Profile</a>
+          <button class="btn btn-light btn-sm" onclick="logout()">
+            Logout
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      async function logout() {
+        try {
+          const response = await fetch("/", {
+            method: "post",
+          });
+          if (response.redirected) {
+            location.replace(response.url);
+          } else {
+            console.log("Home not redirected.");
+          }
+        } catch (error) {
+          console.error(error);
+        }
+      }
+
+      window.addEventListener("pageshow", (event) => {
+        var isNavigation =
+          event.persisted ||
+          (typeof window.performance !== "undefined" &&
+            window.performance.navigation.type === 2);
+        if (isNavigation) {
+          window.location.reload();
+        }
+      });
+    </script>
+  </body>
+</html>

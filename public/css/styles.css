@@ -1,0 +1,125 @@
+/* General Styling */
+body {
+  background: linear-gradient(120deg, #f8f9fa, #e0e0e0);
+  font-family: 'Arial', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.centered {
+  padding-top: 50px;
+  text-align: center;
+}
+
+/* Jumbotron Styling */
+.jumbotron {
+  text-align: center;
+  position: relative;
+  background: linear-gradient(135deg, #f8f9fa, #e8ecef);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Profile Image Styles */
+.profile-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 2px solid #343a40;
+  margin-bottom: 20px;
+}
+
+/* Headings */
+h1 {
+  font-size: 2.8rem;
+  color: #343a40;
+}
+
+.lead {
+  font-size: 1.2rem;
+  color: #6c757d;
+}
+
+/* Secrets Container */
+.secrets-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Card Styles */
+.card {
+  background: linear-gradient(135deg, #ffffff, #e8ecef);
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  padding: 15px;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.card-body {
+  padding: 10px;
+}
+
+.card-text {
+  font-size: 1.25rem;
+  color: #343a40;
+}
+
+/* Form Styles */
+form {
+  margin-top: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+/* Button Styles */
+.btn {
+  padding: 10px 20px;
+  border-radius: 6px;
+}
+
+.btn-light {
+  background-color: #f8f9fa;
+  border: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-dark {
+  background: linear-gradient(135deg, #343a40, #495057);
+  border: none;
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-lg {
+  font-size: 1.2rem;
+  padding: 0.6rem 1.2rem;
+}
+
+.btn-sm {
+  font-size: 0.875rem;
+  padding: 0.3rem 0.75rem;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  .card {
+    width: 100%;
+  }
+}

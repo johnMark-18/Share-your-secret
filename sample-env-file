@@ -1,0 +1,7 @@
+change the file name to .env
+
+PORT=3000
+
+DATABASE_URL="your mongoDB connection string"
+
+JWT_SECRET="your jwt key"

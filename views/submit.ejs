@@ -38,19 +38,18 @@
           </div>
           <button type="submit" class="btn btn-dark">Submit</button>
         </form>
-
-        <script>
-          window.addEventListener("pageshow", (event) => {
-            var isNavigation =
-              event.persisted ||
-              (typeof window.performance != "undefined" &&
-                window.performance.navigation.type === 2);
-            if (isNavigation) {
-              window.location.reload();
-            }
-          });
-        </script>
       </div>
     </div>
+    <script>
+      window.addEventListener("pageshow", (event) => {
+        var isNavigation =
+          event.persisted ||
+          (typeof window.performance != "undefined" &&
+            window.performance.navigation.type === 2);
+        if (isNavigation) {
+          window.location.reload();
+        }
+      });
+    </script>
   </body>
 </html>

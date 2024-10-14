@@ -15,7 +15,7 @@ Installation:
 git clone https://github.com/your-username/Share-your-secret.git
 
 2.Navigate to the project directory:
-cd secrets-app
+cd Share-your-secret
 
 3.Install dependencies:
 npm install

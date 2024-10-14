@@ -36,4 +36,39 @@ router.get("/", authMiddleware, async (req, res) => {
   }
 });
 
+router.put("/:id",authMiddleware,async(req,res)=>{
+  try {
+    const existingSecret = await Secret.findById(req.params.id);
+
+    if(!existingSecret){
+      return res.status(404).send("secret not found")
+    }
+
+    existingSecret.content = req.body.content;
+
+    await existingSecret.save();
+
+    res.status(200).send("secret updates succesfully")
+    
+  } catch (error) {
+    console.error("error while updating secret:",error);
+    res.status(500).send("internal server error")
+  }
+})
+
+router.delete("/:id",authMiddleware,async(req,res)=>{
+  try {
+    deleteSecret = await Secret.findByIdAndDelete(req.body.id);
+
+    if(!deleteSecret){
+      return res.status(404).send("secret not found")
+    }
+    
+    res.status(200).send("User and secrets deleted successfully");
+  } catch (error) {
+    console.error("error while deleting secret:",error);
+    res.status(500).send("internal server error")
+  }
+})
+
 module.exports = router;
